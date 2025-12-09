@@ -5,9 +5,11 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F2F2F2"
     tools:context=".vistas.Principal">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -15,32 +17,70 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbarPrincipal"
+        <!-- Toolbar con elevación -->
+        <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#F2A516"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme"
-            app:title="@string/principal_title"
-            app:titleTextColor="#0B0B0B" />
+            android:elevation="4dp"
+            app:elevation="4dp">
 
-        <TextView
-            android:id="@+id/textView4"
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbarPrincipal"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="#F2A516"
+                app:title="@string/principal_title"
+                app:titleTextAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+                app:titleTextColor="#FFFFFF" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <!-- Header con búsqueda (opcional) -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="35dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginBottom="25dp"
-            android:text="@string/principal_title"
-            android:textColor="#F2A516"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:background="#FFFFFF"
+            android:elevation="2dp"
+            android:orientation="vertical"
+            android:paddingStart="20dp"
+            android:paddingTop="16dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="16dp">
 
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Artículos Destacados"
+                android:textColor="#0D0D0D"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:alpha="0.6"
+                android:text="Encuentra las mejores herramientas"
+                android:textColor="#0D0D0D"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <!-- ListView con padding superior -->
         <ListView
             android:id="@+id/listPrincipal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="12dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:scrollbars="none">
+
+        </ListView>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

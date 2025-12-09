@@ -5,114 +5,239 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F2F2F2"
     tools:context=".vistas.NuevoUsuario">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarNuevoUsuario"
-        android:layout_width="409dp"
+    <!-- AppBar con elevación -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:title="@string/nuevo_usuario_title" />
+        android:elevation="4dp"
+        app:elevation="4dp"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <LinearLayout
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarNuevoUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#F2A516"
+            app:title="@string/nuevo_usuario_title"
+            app:titleTextColor="#FFFFFF"
+            app:navigationIcon="?attr/homeAsUpIndicator"
+            app:navigationIconTint="#FFFFFF"/>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- ScrollView para formulario -->
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbarNuevoUsuario">
+        android:fillViewport="true"
+        app:layout_constraintTop_toBottomOf="@id/appBarLayout"
+        app:layout_constraintBottom_toBottomOf="parent">
 
-        <EditText
-            android:id="@+id/campoNombreUser"
-            android:layout_width="match_parent"
-            android:layout_height="58dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:ems="10"
-            android:hint="@string/nombre"
-            android:inputType="text"
-            android:textAlignment="center" />
-
-        <EditText
-            android:id="@+id/campoApellidosUser"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:ems="10"
-            android:hint="@string/apellidos"
-            android:inputType="text"
-            android:textAlignment="center" />
-
-        <EditText
-            android:id="@+id/campoEdadUser"
-            android:layout_width="match_parent"
-            android:layout_height="57dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:ems="10"
-            android:hint="@string/edad"
-            android:inputType="text"
-            android:textAlignment="center" />
-
-        <EditText
-            android:id="@+id/campoUsuarioUser"
-            android:layout_width="match_parent"
-            android:layout_height="57dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:ems="10"
-            android:hint="@string/usuario"
-            android:inputType="text"
-            android:textAlignment="center" />
-
-        <EditText
-            android:id="@+id/campoPassUser"
-            android:layout_width="match_parent"
-            android:layout_height="57dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:ems="10"
-            android:hint="@string/password"
-            android:inputType="text"
-            android:textAlignment="center" />
-
-        <TextView
-            android:id="@+id/textView3"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:text="@string/tipo" />
+            android:orientation="vertical"
+            android:padding="20dp">
 
-        <Spinner
-            android:id="@+id/spinnerTipoUser"
-            android:layout_width="match_parent"
-            android:layout_height="49dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:entries="@array/spinner_tipo_usuario" />
+            <!-- Card contenedor del formulario -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                android:backgroundTint="#FFFFFF">
 
-        <Button
-            android:id="@+id/btnRegistrarUsuario"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="60dp"
-            android:layout_marginEnd="20dp"
-            android:text="@string/registrar" />
-    </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <!-- Título sección -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Datos Personales"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="#0D0D0D"
+                        android:layout_marginBottom="16dp"/>
+
+                    <!-- Campo Nombre -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/nombre"
+                        app:boxStrokeColor="#F2A516"
+                        app:hintTextColor="#F2A516"
+                        app:startIconDrawable="@android:drawable/ic_menu_myplaces"
+                        app:startIconTint="#F2A516"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/campoNombreUser"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPersonName"
+                            android:textColor="#0D0D0D"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Campo Apellidos -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:hint="@string/apellidos"
+                        app:boxStrokeColor="#F2A516"
+                        app:hintTextColor="#F2A516"
+                        app:startIconDrawable="@android:drawable/ic_menu_myplaces"
+                        app:startIconTint="#F2A516"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/campoApellidosUser"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPersonName"
+                            android:textColor="#0D0D0D"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Campo Edad -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:hint="@string/edad"
+                        app:boxStrokeColor="#F2A516"
+                        app:hintTextColor="#F2A516"
+                        app:startIconDrawable="@android:drawable/ic_menu_today"
+                        app:startIconTint="#F2A516"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/campoEdadUser"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:textColor="#0D0D0D"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Divisor -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginBottom="16dp"
+                        android:background="#F2A516"
+                        android:alpha="0.3"/>
+
+                    <!-- Título sección credenciales -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Credenciales de Acceso"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="#0D0D0D"
+                        android:layout_marginBottom="16dp"/>
+
+                    <!-- Campo Usuario -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/usuario"
+                        app:boxStrokeColor="#F2A516"
+                        app:hintTextColor="#F2A516"
+                        app:startIconDrawable="@android:drawable/ic_menu_info_details"
+                        app:startIconTint="#F2A516"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/campoUsuarioUser"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="text"
+                            android:textColor="#0D0D0D"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Campo Contraseña -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:hint="@string/password"
+                        app:boxStrokeColor="#F2A516"
+                        app:hintTextColor="#F2A516"
+                        app:startIconDrawable="@android:drawable/ic_lock_lock"
+                        app:startIconTint="#F2A516"
+                        app:endIconMode="password_toggle"
+                        app:endIconTint="#F2A516"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/campoPassUser"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPassword"
+                            android:textColor="#0D0D0D"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Tipo de Usuario -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginBottom="8dp"
+                        android:text="@string/tipo"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="#F2A516"/>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="12dp"
+                        app:strokeColor="#F2A516"
+                        app:strokeWidth="1dp"
+                        android:backgroundTint="#FFFFFF">
+
+                        <Spinner
+                            android:id="@+id/spinnerTipoUser"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:paddingStart="16dp"
+                            android:paddingEnd="16dp"
+                            android:entries="@array/spinner_tipo_usuario"/>
+                    </com.google.android.material.card.MaterialCardView>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Botón de registro -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnRegistrarUsuario"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="20dp"
+                android:text="@string/registrar"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                app:backgroundTint="#F2BB16"
+                app:cornerRadius="12dp"
+                app:elevation="4dp"
+                app:icon="@android:drawable/ic_menu_save"
+                app:iconGravity="textStart"
+                app:iconTint="#FFFFFF"/>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
