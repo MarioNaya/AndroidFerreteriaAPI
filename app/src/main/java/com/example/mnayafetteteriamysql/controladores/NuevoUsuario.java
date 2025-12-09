@@ -1,4 +1,4 @@
-package com.example.mnayafetteteriamysql.vistas;
+package com.example.mnayafetteteriamysql.controladores;
 
 import android.os.Bundle;
 import android.view.View;

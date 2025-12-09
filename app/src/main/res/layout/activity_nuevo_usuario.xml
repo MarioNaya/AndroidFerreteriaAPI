@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F2F2F2"
-    tools:context=".vistas.NuevoUsuario">
+    tools:context=".controladores.NuevoUsuario">
 
     <!-- AppBar con elevación -->
     <com.google.android.material.appbar.AppBarLayout

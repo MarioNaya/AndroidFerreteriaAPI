@@ -14,36 +14,36 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MnayaFetteteriaMySql">
         <activity
-            android:name=".vistas.UsuarioSeleccionado"
+            android:name=".controladores.UsuarioSeleccionado"
             android:exported="false" />
         <activity
-            android:name=".vistas.Ofertas"
+            android:name=".controladores.Ofertas"
             android:exported="false" />
         <activity
-            android:name=".vistas.ListadoUsuarios"
+            android:name=".controladores.ListadoUsuarios"
             android:exported="false" />
         <activity
-            android:name=".vistas.ListadoArticulos"
+            android:name=".controladores.ListadoArticulos"
             android:exported="false" />
         <activity
-            android:name=".vistas.ArticuloSeleccionado"
+            android:name=".controladores.ArticuloSeleccionado"
             android:exported="false" />
         <activity
-            android:name=".vistas.Cuenta"
+            android:name=".controladores.Cuenta"
             android:exported="false" />
         <activity
-            android:name=".vistas.NuevoUsuario"
+            android:name=".controladores.NuevoUsuario"
             android:exported="false"
-            android:parentActivityName=".vistas.Principal" />
+            android:parentActivityName=".controladores.Principal" />
         <activity
-            android:name=".vistas.NuevoArticulo"
+            android:name=".controladores.NuevoArticulo"
             android:exported="false"
-            android:parentActivityName=".vistas.Principal" />
+            android:parentActivityName=".controladores.Principal" />
         <activity
-            android:name=".vistas.Principal"
+            android:name=".controladores.Principal"
             android:exported="false" />
         <activity
-            android:name=".vistas.MainActivity"
+            android:name=".controladores.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -7,14 +7,14 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mnayafetteteriamysql.user.SessionManager;
-import com.example.mnayafetteteriamysql.vistas.Cuenta;
-import com.example.mnayafetteteriamysql.vistas.ListadoArticulos;
-import com.example.mnayafetteteriamysql.vistas.ListadoUsuarios;
-import com.example.mnayafetteteriamysql.vistas.MainActivity;
-import com.example.mnayafetteteriamysql.vistas.NuevoArticulo;
-import com.example.mnayafetteteriamysql.vistas.NuevoUsuario;
+import com.example.mnayafetteteriamysql.controladores.Cuenta;
+import com.example.mnayafetteteriamysql.controladores.ListadoArticulos;
+import com.example.mnayafetteteriamysql.controladores.ListadoUsuarios;
+import com.example.mnayafetteteriamysql.controladores.MainActivity;
+import com.example.mnayafetteteriamysql.controladores.NuevoArticulo;
+import com.example.mnayafetteteriamysql.controladores.NuevoUsuario;
 import com.example.mnayafetteteriamysql.R;
-import com.example.mnayafetteteriamysql.vistas.Ofertas;
+import com.example.mnayafetteteriamysql.controladores.Ofertas;
 
 public class Navegacion extends AppCompatActivity {
 
