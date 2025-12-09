@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/itemListArticulosAdmin"
+        android:title="@string/item_listado_articulos" />
+    <item
+        android:id="@+id/itemOfertasAdmin"
+        android:title="@string/item_ofertas" />
+    <item
+        android:id="@+id/itemNuevoArticuloAdmin"
+        android:title="@string/item_nuevo_articulo" />
+    <item
+        android:id="@+id/itemListUsersAdmin"
+        android:title="@string/item_listado_usuarios" />
+    <item
+        android:id="@+id/itemNuevoUsuarioAdmin"
+        android:title="@string/item_nuevo_usuario" />
+    <item
+        android:id="@+id/itemCuentaAdmin"
+        android:title="@string/item_cuenta" />
+    <item
+        android:id="@+id/itemCerrarSesionAdmin"
+        android:title="@string/item_cerrar_sesion" />
+</menu>

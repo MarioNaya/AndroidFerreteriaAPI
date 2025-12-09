@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/itemListArticulosUser"
+        android:title="@string/item_listado_articulos" />
+    <item
+        android:id="@+id/itemOfertasUser"
+        android:title="@string/item_ofertas" />
+    <item
+        android:id="@+id/itemCuentaUser"
+        android:title="@string/item_cuenta" />
+    <item
+        android:id="@+id/itemCerrarSesionUser"
+        android:title="@string/item_cerrar_sesion" />
+</menu>

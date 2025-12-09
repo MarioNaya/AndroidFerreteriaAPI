@@ -1,0 +1,64 @@
+<resources>
+    <string name="app_name">MnayaFetteteriaMySql</string>
+
+    <!--LOGIN-->
+    <string name="usuario">Usuario</string>
+    <string name="password">Contraseña</string>
+    <string name="acceder">Acceder</string>
+
+    <!--PRINCIPAL-->
+    <string name="principal_title">Artículos destacados</string>
+
+    <!--NUEVO ARTÍCULO-->
+    <string name="nuevo_articulo_title">Nuevo Artículo</string>
+    <string name="campo_articulo_hint">Nombre del artículo</string>
+    <string name="campo_descripcion_hint">Descripción</string>
+    <string name="campo_precio_hint">Precio</string>
+    <string name="campo_stock_hint">Stock</string>
+    <string name="categoria">Categoría</string>
+    <string name="origen">Origen</string>
+    <string name="registrar">Registrar</string>
+    <string name="destacado">Destacado</string>
+    <string name="oferta">Oferta</string>
+    <string name="error_database_title">Error de la base de datos</string>
+    <string name="registro_articulo_title">Registro de artículo</string>
+
+    <!--NUEVO USUARIO-->
+    <string name="nuevo_usuario_title">Nuevo Usuario</string>
+    <string name="tipo">Tipo</string>
+    <string name="nombre">Nombre</string>
+    <string name="apellidos">Apellidos</string>
+    <string name="edad">Edad</string>
+    <string name="registro_usuario_title">Registro de usuario</string>
+
+    <!--MENU-->
+    <string name="item_listado_articulos">Listado de artículos</string>
+    <string name="item_ofertas">Ofertas</string>
+    <string name="item_nuevo_articulo">Nuevo artículo</string>
+    <string name="item_listado_usuarios">Listado de usuarios</string>
+    <string name="item_nuevo_usuario">Nuevo usuario</string>
+    <string name="item_cuenta">Mi cuenta</string>
+    <string name="item_cerrar_sesion">Cerrar sesión</string>
+
+    <!--AVISOS-->
+    <string name="campo_obligatorio_title">Campo obligatorio</string>
+
+    <!--ARRAYS SPINNERS-->
+    <string-array name="spinner_categoria">
+        <item name="seleccione">Seleccione</item>
+        <item name="menaje">Menaje</item>
+        <item name="jardin">Jardín</item>
+        <item name="iluminacion">Iluminación</item>
+        <item name="herramientas">Herramientas</item>
+    </string-array>
+    <string-array name="spinner_origen">
+        <item name="seleccione">Seleccione</item>
+        <item name="naciona">Nacional</item>
+        <item name="internacional">Internacional</item>
+    </string-array>
+    <string-array name="spinner_tipo_usuario">
+        <item name="seleccione">Seleccione</item>
+        <item name="user">User</item>
+        <item name="admin">Admin</item>
+    </string-array>
+</resources>
