@@ -40,6 +40,9 @@
     <string name="item_cuenta">Mi cuenta</string>
     <string name="item_cerrar_sesion">Cerrar sesión</string>
 
+    <!--LISTA OFERTAS-->
+    <string name="ofertas">Ofertas</string>
+
     <!--AVISOS-->
     <string name="campo_obligatorio_title">Campo obligatorio</string>
 

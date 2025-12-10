@@ -52,6 +52,7 @@
                 android:backgroundTint="#FFFFFF">
 
                 <LinearLayout
+                    android:id="@+id/panelNuevoArticulo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
@@ -61,29 +62,29 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
                         android:text="Información del Artículo"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
                         android:textColor="#0D0D0D"
-                        android:layout_marginBottom="16dp"/>
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
                     <!-- Campo Artículo -->
                     <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/campo_articulo_hint"
                         app:boxStrokeColor="#F2A516"
                         app:hintTextColor="#F2A516"
                         app:startIconDrawable="@android:drawable/ic_menu_edit"
-                        app:startIconTint="#F2A516"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                        app:startIconTint="#F2A516">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/campoArticulo"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="text"
-                            android:textColor="#0D0D0D"/>
+                            android:textColor="#0D0D0D" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <!-- Categoría -->
@@ -93,29 +94,31 @@
                         android:layout_marginTop="16dp"
                         android:layout_marginBottom="8dp"
                         android:text="@string/categoria"
+                        android:textColor="#F2A516"
                         android:textSize="14sp"
-                        android:textStyle="bold"
-                        android:textColor="#F2A516"/>
+                        android:textStyle="bold" />
 
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:backgroundTint="#FFFFFF"
                         app:cardCornerRadius="12dp"
                         app:strokeColor="#F2A516"
-                        app:strokeWidth="1dp"
-                        android:backgroundTint="#FFFFFF">
+                        app:strokeWidth="1dp">
 
                         <Spinner
                             android:id="@+id/spinnerCategoria"
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
+                            android:entries="@array/spinner_categoria"
                             android:paddingStart="16dp"
                             android:paddingEnd="16dp"
-                            android:entries="@array/spinner_categoria"/>
+                            android:tag="@string/categoria" />
                     </com.google.android.material.card.MaterialCardView>
 
                     <!-- Campo Descripción -->
                     <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
@@ -123,8 +126,7 @@
                         app:boxStrokeColor="#F2A516"
                         app:hintTextColor="#F2A516"
                         app:startIconDrawable="@android:drawable/ic_menu_info_details"
-                        app:startIconTint="#F2A516"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                        app:startIconTint="#F2A516">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/campoDescripcion"
@@ -132,7 +134,7 @@
                             android:layout_height="wrap_content"
                             android:inputType="textMultiLine"
                             android:minLines="2"
-                            android:textColor="#0D0D0D"/>
+                            android:textColor="#0D0D0D" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <!-- Campos Precio y Stock en fila -->
@@ -145,42 +147,42 @@
 
                         <!-- Campo Precio -->
                         <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
                             android:layout_marginEnd="8dp"
+                            android:layout_weight="1"
                             android:hint="@string/campo_precio_hint"
                             app:boxStrokeColor="#F2A516"
                             app:hintTextColor="#F2A516"
                             app:prefixText="€"
-                            app:prefixTextColor="#F2A516"
-                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                            app:prefixTextColor="#F2A516">
 
                             <com.google.android.material.textfield.TextInputEditText
                                 android:id="@+id/campoPrecio"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:inputType="numberDecimal"
-                                android:textColor="#0D0D0D"/>
+                                android:textColor="#0D0D0D" />
                         </com.google.android.material.textfield.TextInputLayout>
 
                         <!-- Campo Stock -->
                         <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
                             android:layout_marginStart="8dp"
+                            android:layout_weight="1"
                             android:hint="@string/campo_stock_hint"
                             app:boxStrokeColor="#F2A516"
-                            app:hintTextColor="#F2A516"
-                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                            app:hintTextColor="#F2A516">
 
                             <com.google.android.material.textfield.TextInputEditText
                                 android:id="@+id/campoStock"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:inputType="number"
-                                android:textColor="#0D0D0D"/>
+                                android:textColor="#0D0D0D" />
                         </com.google.android.material.textfield.TextInputLayout>
 
                     </LinearLayout>
@@ -192,25 +194,26 @@
                         android:layout_marginTop="16dp"
                         android:layout_marginBottom="8dp"
                         android:text="@string/origen"
+                        android:textColor="#F2A516"
                         android:textSize="14sp"
-                        android:textStyle="bold"
-                        android:textColor="#F2A516"/>
+                        android:textStyle="bold" />
 
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:backgroundTint="#FFFFFF"
                         app:cardCornerRadius="12dp"
                         app:strokeColor="#F2A516"
-                        app:strokeWidth="1dp"
-                        android:backgroundTint="#FFFFFF">
+                        app:strokeWidth="1dp">
 
                         <Spinner
                             android:id="@+id/spinnerOrigen"
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
+                            android:entries="@array/spinner_origen"
                             android:paddingStart="16dp"
                             android:paddingEnd="16dp"
-                            android:entries="@array/spinner_origen"/>
+                            android:tag="@string/origen" />
                     </com.google.android.material.card.MaterialCardView>
 
                     <!-- Opciones adicionales -->
@@ -220,45 +223,45 @@
                         android:layout_marginTop="24dp"
                         android:layout_marginBottom="12dp"
                         android:text="Opciones Especiales"
+                        android:textColor="#F2A516"
                         android:textSize="14sp"
-                        android:textStyle="bold"
-                        android:textColor="#F2A516"/>
+                        android:textStyle="bold" />
 
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:backgroundTint="#FFF9E6"
                         app:cardCornerRadius="12dp"
                         app:strokeColor="#F2A516"
-                        app:strokeWidth="1dp"
-                        android:backgroundTint="#FFF9E6">
+                        app:strokeWidth="1dp">
 
                         <com.google.android.material.radiobutton.MaterialRadioButton
                             android:id="@+id/radioDestacado"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:buttonTint="#F2A516"
                             android:padding="16dp"
                             android:text="@string/destacado"
-                            android:textColor="#0D0D0D"
-                            android:buttonTint="#F2A516"/>
+                            android:textColor="#0D0D0D" />
                     </com.google.android.material.card.MaterialCardView>
 
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
+                        android:backgroundTint="#FFF9E6"
                         app:cardCornerRadius="12dp"
                         app:strokeColor="#F2A516"
-                        app:strokeWidth="1dp"
-                        android:backgroundTint="#FFF9E6">
+                        app:strokeWidth="1dp">
 
                         <com.google.android.material.radiobutton.MaterialRadioButton
                             android:id="@+id/radioOferta"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:buttonTint="#F2A516"
                             android:padding="16dp"
                             android:text="@string/oferta"
-                            android:textColor="#0D0D0D"
-                            android:buttonTint="#F2A516"/>
+                            android:textColor="#0D0D0D" />
                     </com.google.android.material.card.MaterialCardView>
 
                 </LinearLayout>

@@ -23,6 +23,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.mnayafetteteriamysql.R;
 import com.example.mnayafetteteriamysql.navegacion.Navegacion;
+import com.example.mnayafetteteriamysql.utilidades.Avisos;
 import com.example.mnayafetteteriamysql.utilidades.Validaciones;
 
 import org.json.JSONException;
@@ -91,6 +92,8 @@ public class MainActivity extends Navegacion {
         String password = pass.getText().toString();
 
         if(Validaciones.comruebaCamposVacios(layout, MainActivity.this)){
+            return;
+        }
             StringRequest StringR = new StringRequest(
                     Request.Method.POST,
                     URL, new Response.Listener<String>() {
@@ -110,10 +113,7 @@ public class MainActivity extends Navegacion {
                             getSession().guardarSesion(usuar,tipo);
                             irAPantallaPrincipal();
                         } else {
-                            AlertDialog.Builder alerta = new AlertDialog.Builder(MainActivity.this);
-                            alerta.setTitle("LOGIN");
-                            alerta.setMessage("Error en el logado. Inténtelo de nuevo");
-                            alerta.show();
+                            Avisos.avisoSinBotones(MainActivity.this, "LOGIN", "Error en el logado. Inténtelo de nuevo").show();
 
                             user.setText("");
                             pass.setText("");
@@ -146,6 +146,6 @@ public class MainActivity extends Navegacion {
             requestQueue.getCache().clear();
             requestQueue.add(StringR);
         }
-        }
+
 
 }

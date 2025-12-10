@@ -54,6 +54,12 @@ public class Principal extends Navegacion {
         cargarArticulosDestacados();
     }
 
+    @Override
+    protected void onResume() {
+        cargarArticulosDestacados();
+        super.onResume();
+    }
+
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater inflater = getMenuInflater();
 
@@ -78,11 +84,12 @@ public class Principal extends Navegacion {
                         for (int i = 0; i < response.length(); i++) {
                             JSONObject obj = response.getJSONObject(i);
 
-                            String nombre = obj.getString("nombre");
-                            String categoria = obj.getString("categoria");
-                            String descripcion = obj.getString("descripcion");
-
-                            articulos.add(new Articulo(nombre, categoria, descripcion));
+                            articulos.add(
+                                    new Articulo.ArticuloBuilder()
+                                            .setNombre(obj.getString("nombre"))
+                                            .setCategoria(obj.getString("categoria"))
+                                            .setDescripcion(obj.getString("descripcion"))
+                                            .build());
                         }
 
                         adapter = new ArticulosDestacadosAdapter(this, articulos);

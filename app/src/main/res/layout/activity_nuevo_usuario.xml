@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F2F2F2"
+    android:tag="@string/tipo"
     tools:context=".controladores.NuevoUsuario">
 
     <!-- AppBar con elevación -->
@@ -22,10 +23,10 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="#F2A516"
-            app:title="@string/nuevo_usuario_title"
-            app:titleTextColor="#FFFFFF"
             app:navigationIcon="?attr/homeAsUpIndicator"
-            app:navigationIconTint="#FFFFFF"/>
+            app:navigationIconTint="#FFFFFF"
+            app:title="@string/nuevo_usuario_title"
+            app:titleTextColor="#FFFFFF" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -34,8 +35,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:fillViewport="true"
-        app:layout_constraintTop_toBottomOf="@id/appBarLayout"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appBarLayout">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -47,11 +48,12 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:backgroundTint="#FFFFFF"
                 app:cardCornerRadius="16dp"
-                app:cardElevation="4dp"
-                android:backgroundTint="#FFFFFF">
+                app:cardElevation="4dp">
 
                 <LinearLayout
+                    android:id="@+id/panelNuevoUsuario"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
@@ -61,33 +63,34 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
                         android:text="Datos Personales"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
                         android:textColor="#0D0D0D"
-                        android:layout_marginBottom="16dp"/>
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
                     <!-- Campo Nombre -->
                     <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/nombre"
                         app:boxStrokeColor="#F2A516"
                         app:hintTextColor="#F2A516"
                         app:startIconDrawable="@android:drawable/ic_menu_myplaces"
-                        app:startIconTint="#F2A516"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                        app:startIconTint="#F2A516">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/campoNombreUser"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="textPersonName"
-                            android:textColor="#0D0D0D"/>
+                            android:textColor="#0D0D0D" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <!-- Campo Apellidos -->
                     <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
@@ -95,19 +98,19 @@
                         app:boxStrokeColor="#F2A516"
                         app:hintTextColor="#F2A516"
                         app:startIconDrawable="@android:drawable/ic_menu_myplaces"
-                        app:startIconTint="#F2A516"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                        app:startIconTint="#F2A516">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/campoApellidosUser"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="textPersonName"
-                            android:textColor="#0D0D0D"/>
+                            android:textColor="#0D0D0D" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <!-- Campo Edad -->
                     <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
@@ -115,15 +118,14 @@
                         app:boxStrokeColor="#F2A516"
                         app:hintTextColor="#F2A516"
                         app:startIconDrawable="@android:drawable/ic_menu_today"
-                        app:startIconTint="#F2A516"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                        app:startIconTint="#F2A516">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/campoEdadUser"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="number"
-                            android:textColor="#0D0D0D"/>
+                            android:textColor="#0D0D0D" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <!-- Divisor -->
@@ -132,58 +134,58 @@
                         android:layout_height="1dp"
                         android:layout_marginTop="24dp"
                         android:layout_marginBottom="16dp"
-                        android:background="#F2A516"
-                        android:alpha="0.3"/>
+                        android:alpha="0.3"
+                        android:background="#F2A516" />
 
                     <!-- Título sección credenciales -->
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
                         android:text="Credenciales de Acceso"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
                         android:textColor="#0D0D0D"
-                        android:layout_marginBottom="16dp"/>
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
                     <!-- Campo Usuario -->
                     <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/usuario"
                         app:boxStrokeColor="#F2A516"
                         app:hintTextColor="#F2A516"
                         app:startIconDrawable="@android:drawable/ic_menu_info_details"
-                        app:startIconTint="#F2A516"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                        app:startIconTint="#F2A516">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/campoUsuarioUser"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="text"
-                            android:textColor="#0D0D0D"/>
+                            android:textColor="#0D0D0D" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <!-- Campo Contraseña -->
                     <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
                         android:hint="@string/password"
                         app:boxStrokeColor="#F2A516"
-                        app:hintTextColor="#F2A516"
-                        app:startIconDrawable="@android:drawable/ic_lock_lock"
-                        app:startIconTint="#F2A516"
                         app:endIconMode="password_toggle"
                         app:endIconTint="#F2A516"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                        app:hintTextColor="#F2A516"
+                        app:startIconDrawable="@android:drawable/ic_lock_lock"
+                        app:startIconTint="#F2A516">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/campoPassUser"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="textPassword"
-                            android:textColor="#0D0D0D"/>
+                            android:textColor="#0D0D0D" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <!-- Tipo de Usuario -->
@@ -193,25 +195,25 @@
                         android:layout_marginTop="24dp"
                         android:layout_marginBottom="8dp"
                         android:text="@string/tipo"
+                        android:textColor="#F2A516"
                         android:textSize="14sp"
-                        android:textStyle="bold"
-                        android:textColor="#F2A516"/>
+                        android:textStyle="bold" />
 
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:backgroundTint="#FFFFFF"
                         app:cardCornerRadius="12dp"
                         app:strokeColor="#F2A516"
-                        app:strokeWidth="1dp"
-                        android:backgroundTint="#FFFFFF">
+                        app:strokeWidth="1dp">
 
                         <Spinner
                             android:id="@+id/spinnerTipoUser"
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
+                            android:entries="@array/spinner_tipo_usuario"
                             android:paddingStart="16dp"
-                            android:paddingEnd="16dp"
-                            android:entries="@array/spinner_tipo_usuario"/>
+                            android:paddingEnd="16dp" />
                     </com.google.android.material.card.MaterialCardView>
 
                 </LinearLayout>
@@ -226,15 +228,15 @@
                 android:layout_marginTop="24dp"
                 android:layout_marginBottom="20dp"
                 android:text="@string/registrar"
+                android:textColor="#FFFFFF"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:textColor="#FFFFFF"
                 app:backgroundTint="#F2BB16"
                 app:cornerRadius="12dp"
                 app:elevation="4dp"
                 app:icon="@android:drawable/ic_menu_save"
                 app:iconGravity="textStart"
-                app:iconTint="#FFFFFF"/>
+                app:iconTint="#FFFFFF" />
 
         </LinearLayout>
 

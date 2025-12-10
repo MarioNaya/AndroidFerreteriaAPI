@@ -15,22 +15,28 @@
         android:theme="@style/Theme.MnayaFetteteriaMySql">
         <activity
             android:name=".controladores.UsuarioSeleccionado"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".controladores.ListadoUsuarios"/>
         <activity
             android:name=".controladores.Ofertas"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".controladores.Principal"/>
         <activity
             android:name=".controladores.ListadoUsuarios"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".controladores.Principal"/>
         <activity
             android:name=".controladores.ListadoArticulos"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".controladores.Principal"/>
         <activity
             android:name=".controladores.ArticuloSeleccionado"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".controladores.ListadoArticulos"/>
         <activity
             android:name=".controladores.Cuenta"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".controladores.Principal"/>
         <activity
             android:name=".controladores.NuevoUsuario"
             android:exported="false"

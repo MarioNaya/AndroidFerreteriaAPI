@@ -8,20 +8,37 @@ import android.widget.Spinner;
 
 public class Validaciones {
 
-    public static boolean comruebaCamposVacios(LinearLayout layout, Context context) {
+    public static boolean comruebaCamposVacios(View view, Context context) {
+        return !validarCamposRecursivo(view, context);
+    }
 
-        for (int i = 0; i < layout.getChildCount(); i++) {
-            View campo = layout.getChildAt(i);
-            if (campo instanceof EditText && ((EditText) campo).getText().toString().trim().isEmpty()) {
-                Avisos.campoObligatorio(campo, context).show();
-                return false;
-            }
-
-            if (campo instanceof Spinner && ((Spinner) campo).getSelectedItemPosition() == 0) {
-                Avisos.campoObligatorio(campo, context).show();
+    private static boolean validarCamposRecursivo(View view, Context context) {
+        if (view instanceof EditText) {
+            EditText editText = (EditText) view;
+            if (editText.getText().toString().trim().isEmpty()) {
+                editText.setError("Este campo es obligatorio.");
+                editText.requestFocus();
                 return false;
             }
         }
+
+        if (view instanceof Spinner) {
+            Spinner spinner = (Spinner) view;
+            if (spinner.getSelectedItemPosition() == 0) {
+                Avisos.campoObligatorio(spinner, context).show();
+                return false;
+            }
+        }
+
+        if (view instanceof android.view.ViewGroup) {
+            android.view.ViewGroup viewGroup = (android.view.ViewGroup) view;
+            for (int i = 0; i < viewGroup.getChildCount(); i++) {
+                if (!validarCamposRecursivo(viewGroup.getChildAt(i), context)) {
+                    return false;
+                }
+            }
+        }
+
         return true;
     }
 
@@ -34,16 +51,16 @@ public class Validaciones {
             if (valor < 0) {
                 editText.setError("El valor debe ser 0 o superior");
                 editText.requestFocus();
-                return false;
+                return true;
             }
 
             editText.setError(null);
-            return true;
+            return false;
 
         } catch (NumberFormatException e) {
             editText.setError("Debe ingresar un número entero válido");
             editText.requestFocus();
-            return false;
+            return true;
         }
     }
 
@@ -56,16 +73,29 @@ public class Validaciones {
             if (valor < 0) {
                 editText.setError("El valor no puede ser negativo");
                 editText.requestFocus();
-                return false;
+                return true;
             }
 
             editText.setError(null);
-            return true;
+            return false;
 
         } catch (NumberFormatException e) {
             editText.setError("Debe ingresar un número decimal válido");
             editText.requestFocus();
-            return false;
+            return true;
         }
+    }
+
+    public static boolean validarEdad(EditText editText, Context context){
+        String texto = editText.getText().toString().trim();
+
+        int valor = Integer.parseInt(texto);
+
+        if (valor < 18 || valor > 99){
+            editText.setError("La edad debe estar comprendida entre 18 y 99 años.");
+            editText.requestFocus();
+            return true;
+        }
+        return false;
     }
 }

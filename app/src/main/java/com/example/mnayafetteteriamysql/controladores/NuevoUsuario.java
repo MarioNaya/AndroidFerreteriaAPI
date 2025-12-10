@@ -1,14 +1,15 @@
 package com.example.mnayafetteteriamysql.controladores;
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 
 import androidx.activity.EdgeToEdge;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -21,7 +22,11 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.mnayafetteteriamysql.R;
+import com.example.mnayafetteteriamysql.modelo.Usuario;
 import com.example.mnayafetteteriamysql.navegacion.Navegacion;
+import com.example.mnayafetteteriamysql.utilidades.Avisos;
+import com.example.mnayafetteteriamysql.utilidades.Utilidades;
+import com.example.mnayafetteteriamysql.utilidades.Validaciones;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -31,8 +36,10 @@ import java.util.Map;
 
 public class NuevoUsuario extends Navegacion {
 
+    LinearLayout layout;
     EditText nom, ape, eda, usu, pas;
     Spinner tip;
+    String tipoUsuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +55,10 @@ public class NuevoUsuario extends Navegacion {
         setSupportActionBar(findViewById(R.id.toolbarNuevoUsuario));
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        tipoUsuario = tipoUsuario = getSession().getTipo();
+
+        layout = findViewById(R.id.panelNuevoUsuario);
 
         nom = findViewById(R.id.campoNombreUser);
         ape = findViewById(R.id.campoApellidosUser);
@@ -69,17 +80,28 @@ public class NuevoUsuario extends Navegacion {
     @Override
     protected void onResume() {
         super.onResume();
-        limpiarCampos();
+        Utilidades.limpiaCampos(layout);
     }
 
     public void registrar(String url){
 
-        String nombre = nom.getText().toString();
-        String apellidos = ape.getText().toString();
-        String edad = eda.getText().toString();
-        String usuario = usu.getText().toString();
-        String password = pas.getText().toString();
-        String tipo = tip.getSelectedItem().toString();
+        if (Validaciones.comruebaCamposVacios(layout, NuevoUsuario.this)){
+            return;
+        }
+        if (Validaciones.validarEnteroPositivo(eda, NuevoUsuario.this)){
+            return;
+        }
+        if (Validaciones.validarEdad(eda, NuevoUsuario.this)){
+            return;
+        }
+        Usuario usuario = new Usuario.UsuarioBuilder()
+                .setNombre(nom.getText().toString())
+                .setApellidos(ape.getText().toString())
+                .setEdad(Integer.parseInt(eda.getText().toString()))
+                .setUsuario(usu.getText().toString())
+                .setPassword(pas.getText().toString())
+                .setTipo(tip.getSelectedItem().toString())
+                .build();
 
         StringRequest stringRequest = new StringRequest(
                 Request.Method.POST,
@@ -93,36 +115,31 @@ public class NuevoUsuario extends Navegacion {
                             String status = jsonResponse.getString("status");
                             String mensaje = jsonResponse.getString("message");
 
-                            AlertDialog.Builder alerta = new AlertDialog.Builder(NuevoUsuario.this);
-                            alerta.setTitle(R.string.nuevo_usuario_title);
-                            alerta.setMessage(mensaje);
-                            alerta.show();
+                            Avisos.avisoSinBotones(NuevoUsuario.this,getString(R.string.nuevo_usuario_title),mensaje).show();
+
 
                         } catch (JSONException e) {
                             throw new RuntimeException(e);
                         }
+                        Utilidades.limpiaCampos(layout);
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError volleyError) {
-                        AlertDialog.Builder alerta = new AlertDialog.Builder(NuevoUsuario.this);
-                        alerta.setTitle(R.string.error_database_title);
-                        alerta.setMessage(volleyError.toString());
-                        alerta.show();
+                        Avisos.avisoSinBotones(NuevoUsuario.this,getString(R.string.error_database_title),volleyError.toString()).show();
                     }
                 })
         {
-            @Nullable
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String,String> parametros = new HashMap<>();
-                parametros.put("nombre",nombre);
-                parametros.put("apellidos",apellidos);
-                parametros.put("edad",edad);
-                parametros.put("usuario",usuario);
-                parametros.put("password",password);
-                parametros.put("tipo",tipo);
+                parametros.put("nombre",usuario.getNombre());
+                parametros.put("apellidos",usuario.getApellidos());
+                parametros.put("edad",String.valueOf(usuario.getEdad()));
+                parametros.put("usuario",usuario.getUsuario());
+                parametros.put("password",usuario.getPassword());
+                parametros.put("tipo",usuario.getTipo());
                 return parametros;
             }
         };
@@ -132,12 +149,15 @@ public class NuevoUsuario extends Navegacion {
         requestQueue.add(stringRequest);
     }
 
-    public void limpiarCampos(){
-        nom.setText("");
-        ape.setText("");
-        eda.setText("");
-        usu.setText("");
-        pas.setText("");
-        tip.setSelection(0);
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater inflater = getMenuInflater();
+
+        if ("Admin".equals(tipoUsuario)) {
+            inflater.inflate(R.menu.menu_admin, menu);
+        } else if ("User".equals(tipoUsuario)) {
+            inflater.inflate(R.menu.menu_user, menu);
+        }
+
+        return true;
     }
 }
