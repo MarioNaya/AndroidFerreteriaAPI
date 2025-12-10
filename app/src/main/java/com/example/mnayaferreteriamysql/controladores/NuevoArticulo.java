@@ -1,4 +1,4 @@
-package com.example.mnayafetteteriamysql.controladores;
+package com.example.mnayaferreteriamysql.controladores;
 
 import android.os.Bundle;
 import android.view.Menu;
@@ -7,7 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.core.graphics.Insets;
@@ -21,12 +23,12 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.mnayafetteteriamysql.R;
-import com.example.mnayafetteteriamysql.modelo.Usuario;
-import com.example.mnayafetteteriamysql.navegacion.Navegacion;
-import com.example.mnayafetteteriamysql.utilidades.Avisos;
-import com.example.mnayafetteteriamysql.utilidades.Utilidades;
-import com.example.mnayafetteteriamysql.utilidades.Validaciones;
+import com.example.mnayaferreteriamysql.R;
+import com.example.mnayaferreteriamysql.modelo.Articulo;
+import com.example.mnayaferreteriamysql.navegacion.Navegacion;
+import com.example.mnayaferreteriamysql.utilidades.Avisos;
+import com.example.mnayaferreteriamysql.utilidades.Utilidades;
+import com.example.mnayaferreteriamysql.utilidades.Validaciones;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -34,45 +36,47 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class NuevoUsuario extends Navegacion {
+public class NuevoArticulo extends Navegacion {
 
     LinearLayout layout;
-    EditText nom, ape, eda, usu, pas;
-    Spinner tip;
+    EditText nom, desc, pre, st;
+    Spinner cat, or;
+    RadioButton dest, of;
     String tipoUsuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_nuevo_usuario);
+        setContentView(R.layout.activity_nuevo_articulo);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
-        setSupportActionBar(findViewById(R.id.toolbarNuevoUsuario));
+        setSupportActionBar(findViewById(R.id.toolbarNuevoArticulo));
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         tipoUsuario = tipoUsuario = getSession().getTipo();
 
-        layout = findViewById(R.id.panelNuevoUsuario);
+        layout = findViewById(R.id.panelNuevoArticulo);
+        nom = findViewById(R.id.campoArticulo);
+        cat = findViewById(R.id.spinnerCategoria);
+        desc = findViewById(R.id.campoDescripcion);
+        pre = findViewById(R.id.campoPrecio);
+        st = findViewById(R.id.campoStock);
+        or = findViewById(R.id.spinnerOrigen);
+        dest = findViewById(R.id.radioDestacado);
+        of = findViewById(R.id.radioOferta);
 
-        nom = findViewById(R.id.campoNombreUser);
-        ape = findViewById(R.id.campoApellidosUser);
-        eda = findViewById(R.id.campoEdadUser);
-        usu = findViewById(R.id.campoUsuarioUser);
-        pas = findViewById(R.id.campoPassUser);
-        tip = findViewById(R.id.spinnerTipoUser);
-
-        Button boton = findViewById(R.id.btnRegistrarUsuario);
+        Button boton = findViewById(R.id.btnRegistroArticulo);
 
         boton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                registrar("https://reynaldomd.com/phpscript/registro_usuario.php");
+                registrar("https://reynaldomd.com/phpscript/registro_articulo.php");
             }
         });
     }
@@ -83,24 +87,27 @@ public class NuevoUsuario extends Navegacion {
         Utilidades.limpiaCampos(layout);
     }
 
-    public void registrar(String url){
+    public void registrar(String url) {
 
-        if (Validaciones.comruebaCamposVacios(layout, NuevoUsuario.this)){
+        if (Validaciones.comruebaCamposVacios(layout, NuevoArticulo.this)){
             return;
         }
-        if (Validaciones.validarEnteroPositivo(eda, NuevoUsuario.this)){
+        if (Validaciones.validarDoublePositivo(pre, NuevoArticulo.this)){
             return;
         }
-        if (Validaciones.validarEdad(eda, NuevoUsuario.this)){
+        if (Validaciones.validarEnteroPositivo(st, NuevoArticulo.this)){
             return;
         }
-        Usuario usuario = new Usuario.UsuarioBuilder()
+
+        Articulo articulo = new Articulo.ArticuloBuilder()
                 .setNombre(nom.getText().toString())
-                .setApellidos(ape.getText().toString())
-                .setEdad(Integer.parseInt(eda.getText().toString()))
-                .setUsuario(usu.getText().toString())
-                .setPassword(pas.getText().toString())
-                .setTipo(tip.getSelectedItem().toString())
+                .setCategoria(cat.getSelectedItem().toString())
+                .setDescripcion(desc.getText().toString())
+                .setPrecio(Double.parseDouble(pre.getText().toString()))
+                .setStock(Integer.parseInt(st.getText().toString()))
+                .setOrigen(or.getSelectedItem().toString())
+                .setOferta(of.isChecked() ? 1 : 2)
+                .setDestacado(dest.isChecked() ? 1 : 2)
                 .build();
 
         StringRequest stringRequest = new StringRequest(
@@ -109,17 +116,18 @@ public class NuevoUsuario extends Navegacion {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+
                         try {
                             JSONObject jsonResponse = new JSONObject(response);
 
                             String status = jsonResponse.getString("status");
                             String mensaje = jsonResponse.getString("message");
 
-                            Avisos.avisoSinBotones(NuevoUsuario.this,getString(R.string.nuevo_usuario_title),mensaje).show();
-
+                            Avisos.avisoSinBotones(NuevoArticulo.this, getString(R.string.registro_articulo_title),mensaje).show();
 
                         } catch (JSONException e) {
-                            throw new RuntimeException(e);
+                            e.printStackTrace();
+                            Toast.makeText(getApplicationContext(), "Error en la respuesta JSON", Toast.LENGTH_LONG).show();
                         }
                         Utilidades.limpiaCampos(layout);
                     }
@@ -127,26 +135,30 @@ public class NuevoUsuario extends Navegacion {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError volleyError) {
-                        Avisos.avisoSinBotones(NuevoUsuario.this,getString(R.string.error_database_title),volleyError.toString()).show();
+
+                        Avisos.avisoSinBotones(NuevoArticulo.this, getString(R.string.error_database_title),volleyError.toString()).show();
                     }
                 })
         {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String,String> parametros = new HashMap<>();
-                parametros.put("nombre",usuario.getNombre());
-                parametros.put("apellidos",usuario.getApellidos());
-                parametros.put("edad",String.valueOf(usuario.getEdad()));
-                parametros.put("usuario",usuario.getUsuario());
-                parametros.put("password",usuario.getPassword());
-                parametros.put("tipo",usuario.getTipo());
+                parametros.put("nombre", articulo.getNombre());
+                parametros.put("categoria", articulo.getCategoria());
+                parametros.put("descripcion", articulo.getDescripcion());
+                parametros.put("precio", String.valueOf(articulo.getPrecio()));
+                parametros.put("stock",String.valueOf(articulo.getStock()));
+                parametros.put("origen", articulo.getOrigen());
+                parametros.put("oferta", String.valueOf(articulo.getOferta()));
+                parametros.put("destacado", String.valueOf(articulo.getDestacado()));
+
                 return parametros;
             }
         };
 
-        RequestQueue requestQueue = Volley.newRequestQueue(NuevoUsuario.this);
-        requestQueue.getCache().clear();
-        requestQueue.add(stringRequest);
+        RequestQueue rQueue = Volley.newRequestQueue(NuevoArticulo.this);
+        rQueue.getCache().clear();
+        rQueue.add(stringRequest);
     }
 
     public boolean onCreateOptionsMenu(Menu menu){

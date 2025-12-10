@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "MnayaFetteteriaMySql"
+rootProject.name = "MnayaFerreteriaMySql"
 include(":app")
  

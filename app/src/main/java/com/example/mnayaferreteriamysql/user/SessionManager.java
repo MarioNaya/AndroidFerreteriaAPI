@@ -1,4 +1,4 @@
-package com.example.mnayafetteteriamysql.user;
+package com.example.mnayaferreteriamysql.user;
 
 import android.content.Context;
 import android.content.SharedPreferences;

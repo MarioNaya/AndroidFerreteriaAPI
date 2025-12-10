@@ -1,4 +1,4 @@
-package com.example.mnayafetteteriamysql.controladores;
+package com.example.mnayaferreteriamysql.controladores;
 
 import android.os.Bundle;
 import android.view.Menu;
@@ -14,10 +14,10 @@ import androidx.core.view.WindowInsetsCompat;
 import com.android.volley.Request;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.mnayafetteteriamysql.R;
-import com.example.mnayafetteteriamysql.adaptadores.ArticulosDestacadosAdapter;
-import com.example.mnayafetteteriamysql.modelo.Articulo;
-import com.example.mnayafetteteriamysql.navegacion.Navegacion;
+import com.example.mnayaferreteriamysql.R;
+import com.example.mnayaferreteriamysql.adaptadores.ArticulosDestacadosAdapter;
+import com.example.mnayaferreteriamysql.modelo.Articulo;
+import com.example.mnayaferreteriamysql.navegacion.Navegacion;
 
 import org.json.JSONException;
 import org.json.JSONObject;

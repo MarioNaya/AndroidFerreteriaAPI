@@ -12,44 +12,44 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MnayaFetteteriaMySql">
+        android:theme="@style/Theme.MnayaFerreteriaMySql">
         <activity
-            android:name=".controladores.UsuarioSeleccionado"
+            android:name="com.example.mnayaferreteriamysql.controladores.UsuarioSeleccionado"
             android:exported="false"
-            android:parentActivityName=".controladores.ListadoUsuarios"/>
+            android:parentActivityName="com.example.mnayaferreteriamysql.controladores.ListadoUsuarios"/>
         <activity
-            android:name=".controladores.Ofertas"
+            android:name="com.example.mnayaferreteriamysql.controladores.Ofertas"
             android:exported="false"
-            android:parentActivityName=".controladores.Principal"/>
+            android:parentActivityName="com.example.mnayaferreteriamysql.controladores.Principal"/>
         <activity
-            android:name=".controladores.ListadoUsuarios"
+            android:name="com.example.mnayaferreteriamysql.controladores.ListadoUsuarios"
             android:exported="false"
-            android:parentActivityName=".controladores.Principal"/>
+            android:parentActivityName="com.example.mnayaferreteriamysql.controladores.Principal"/>
         <activity
-            android:name=".controladores.ListadoArticulos"
+            android:name="com.example.mnayaferreteriamysql.controladores.ListadoArticulos"
             android:exported="false"
-            android:parentActivityName=".controladores.Principal"/>
+            android:parentActivityName="com.example.mnayaferreteriamysql.controladores.Principal"/>
         <activity
-            android:name=".controladores.ArticuloSeleccionado"
+            android:name="com.example.mnayaferreteriamysql.controladores.ArticuloSeleccionado"
             android:exported="false"
-            android:parentActivityName=".controladores.ListadoArticulos"/>
+            android:parentActivityName="com.example.mnayaferreteriamysql.controladores.ListadoArticulos"/>
         <activity
-            android:name=".controladores.Cuenta"
+            android:name="com.example.mnayaferreteriamysql.controladores.Cuenta"
             android:exported="false"
-            android:parentActivityName=".controladores.Principal"/>
+            android:parentActivityName="com.example.mnayaferreteriamysql.controladores.Principal"/>
         <activity
-            android:name=".controladores.NuevoUsuario"
+            android:name="com.example.mnayaferreteriamysql.controladores.NuevoUsuario"
             android:exported="false"
-            android:parentActivityName=".controladores.Principal" />
+            android:parentActivityName="com.example.mnayaferreteriamysql.controladores.Principal" />
         <activity
-            android:name=".controladores.NuevoArticulo"
+            android:name="com.example.mnayaferreteriamysql.controladores.NuevoArticulo"
             android:exported="false"
-            android:parentActivityName=".controladores.Principal" />
+            android:parentActivityName="com.example.mnayaferreteriamysql.controladores.Principal" />
         <activity
-            android:name=".controladores.Principal"
+            android:name="com.example.mnayaferreteriamysql.controladores.Principal"
             android:exported="false" />
         <activity
-            android:name=".controladores.MainActivity"
+            android:name="com.example.mnayaferreteriamysql.controladores.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

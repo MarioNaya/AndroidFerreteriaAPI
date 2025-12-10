@@ -1,9 +1,8 @@
-package com.example.mnayafetteteriamysql.utilidades;
+package com.example.mnayaferreteriamysql.utilidades;
 
 import android.content.Context;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.Spinner;
 
 public class Validaciones {

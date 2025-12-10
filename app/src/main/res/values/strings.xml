@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MnayaFetteteriaMySql</string>
+    <string name="app_name">MnayaFerreteriaMySql</string>
 
     <!--LOGIN-->
     <string name="usuario">Usuario</string>
@@ -42,6 +42,9 @@
 
     <!--LISTA OFERTAS-->
     <string name="ofertas">Ofertas</string>
+
+    <!--LISTA USUARIOS-->
+    <string name="usuarios">Usuarios</string>
 
     <!--AVISOS-->
     <string name="campo_obligatorio_title">Campo obligatorio</string>

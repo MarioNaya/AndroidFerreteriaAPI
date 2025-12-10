@@ -1,4 +1,4 @@
-package com.example.mnayafetteteriamysql.controladores;
+package com.example.mnayaferreteriamysql.controladores;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,7 +9,6 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AlertDialog;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -21,10 +20,10 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.mnayafetteteriamysql.R;
-import com.example.mnayafetteteriamysql.navegacion.Navegacion;
-import com.example.mnayafetteteriamysql.utilidades.Avisos;
-import com.example.mnayafetteteriamysql.utilidades.Validaciones;
+import com.example.mnayaferreteriamysql.R;
+import com.example.mnayaferreteriamysql.navegacion.Navegacion;
+import com.example.mnayaferreteriamysql.utilidades.Avisos;
+import com.example.mnayaferreteriamysql.utilidades.Validaciones;
 
 import org.json.JSONException;
 import org.json.JSONObject;

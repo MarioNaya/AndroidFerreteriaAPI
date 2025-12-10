@@ -1,11 +1,11 @@
-package com.example.mnayafetteteriamysql.utilidades;
+package com.example.mnayaferreteriamysql.utilidades;
 
 import android.content.Context;
 import android.view.View;
 
 import androidx.appcompat.app.AlertDialog;
 
-import com.example.mnayafetteteriamysql.R;
+import com.example.mnayaferreteriamysql.R;
 
 public class Avisos {
 

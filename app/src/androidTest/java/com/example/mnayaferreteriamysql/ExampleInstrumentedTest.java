@@ -1,4 +1,4 @@
-package com.example.mnayafetteteriamysql;
+package com.example.mnayaferreteriamysql;
 
 import android.content.Context;
 

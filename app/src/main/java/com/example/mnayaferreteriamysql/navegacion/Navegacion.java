@@ -1,4 +1,4 @@
-package com.example.mnayafetteteriamysql.navegacion;
+package com.example.mnayaferreteriamysql.navegacion;
 
 import android.content.Intent;
 import android.view.MenuItem;
@@ -6,15 +6,15 @@ import android.view.MenuItem;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.mnayafetteteriamysql.user.SessionManager;
-import com.example.mnayafetteteriamysql.controladores.Cuenta;
-import com.example.mnayafetteteriamysql.controladores.ListadoArticulos;
-import com.example.mnayafetteteriamysql.controladores.ListadoUsuarios;
-import com.example.mnayafetteteriamysql.controladores.MainActivity;
-import com.example.mnayafetteteriamysql.controladores.NuevoArticulo;
-import com.example.mnayafetteteriamysql.controladores.NuevoUsuario;
-import com.example.mnayafetteteriamysql.R;
-import com.example.mnayafetteteriamysql.controladores.Ofertas;
+import com.example.mnayaferreteriamysql.user.SessionManager;
+import com.example.mnayaferreteriamysql.controladores.Cuenta;
+import com.example.mnayaferreteriamysql.controladores.ListadoArticulos;
+import com.example.mnayaferreteriamysql.controladores.ListadoUsuarios;
+import com.example.mnayaferreteriamysql.controladores.MainActivity;
+import com.example.mnayaferreteriamysql.controladores.NuevoArticulo;
+import com.example.mnayaferreteriamysql.controladores.NuevoUsuario;
+import com.example.mnayaferreteriamysql.R;
+import com.example.mnayaferreteriamysql.controladores.Ofertas;
 
 public class Navegacion extends AppCompatActivity {
 

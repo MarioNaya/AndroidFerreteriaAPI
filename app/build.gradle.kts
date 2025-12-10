@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.mnayafetteteriamysql"
+    namespace = "com.example.mnayaferreteriamysql"
     compileSdk {
         version = release(36)
     }

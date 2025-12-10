@@ -1,4 +1,4 @@
-package com.example.mnayafetteteriamysql.controladores;
+package com.example.mnayaferreteriamysql.controladores;
 
 import android.os.Bundle;
 
@@ -7,8 +7,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.example.mnayafetteteriamysql.R;
-import com.example.mnayafetteteriamysql.navegacion.Navegacion;
+import com.example.mnayaferreteriamysql.R;
+import com.example.mnayaferreteriamysql.navegacion.Navegacion;
 
 public class Cuenta extends Navegacion {
 

@@ -1,4 +1,4 @@
-package com.example.mnayafetteteriamysql.adaptadores;
+package com.example.mnayaferreteriamysql.adaptadores;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,8 +7,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.example.mnayafetteteriamysql.R;
-import com.example.mnayafetteteriamysql.modelo.Articulo;
+import com.example.mnayaferreteriamysql.R;
+import com.example.mnayaferreteriamysql.modelo.Articulo;
 
 import java.util.List;
 
