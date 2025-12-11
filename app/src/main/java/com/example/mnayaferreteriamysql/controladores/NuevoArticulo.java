@@ -89,13 +89,13 @@ public class NuevoArticulo extends Navegacion {
 
     public void registrar(String url) {
 
-        if (Validaciones.comruebaCamposVacios(layout, NuevoArticulo.this)){
+        if (Validaciones.comruebaCamposVacios(layout, NuevoArticulo.this)) {
             return;
         }
-        if (Validaciones.validarDoublePositivo(pre, NuevoArticulo.this)){
+        if (Validaciones.validarDoublePositivo(pre, NuevoArticulo.this)) {
             return;
         }
-        if (Validaciones.validarEnteroPositivo(st, NuevoArticulo.this)){
+        if (Validaciones.validarEnteroPositivo(st, NuevoArticulo.this)) {
             return;
         }
 
@@ -123,7 +123,7 @@ public class NuevoArticulo extends Navegacion {
                             String status = jsonResponse.getString("status");
                             String mensaje = jsonResponse.getString("message");
 
-                            Avisos.avisoSinBotones(NuevoArticulo.this, getString(R.string.registro_articulo_title),mensaje).show();
+                            Avisos.avisoSinBotones(NuevoArticulo.this, getString(R.string.registro_articulo_title), mensaje);
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -136,18 +136,17 @@ public class NuevoArticulo extends Navegacion {
                     @Override
                     public void onErrorResponse(VolleyError volleyError) {
 
-                        Avisos.avisoSinBotones(NuevoArticulo.this, getString(R.string.error_database_title),volleyError.toString()).show();
+                        Avisos.avisoSinBotones(NuevoArticulo.this, getString(R.string.error_database_title), volleyError.toString());
                     }
-                })
-        {
+                }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String,String> parametros = new HashMap<>();
+                Map<String, String> parametros = new HashMap<>();
                 parametros.put("nombre", articulo.getNombre());
                 parametros.put("categoria", articulo.getCategoria());
                 parametros.put("descripcion", articulo.getDescripcion());
                 parametros.put("precio", String.valueOf(articulo.getPrecio()));
-                parametros.put("stock",String.valueOf(articulo.getStock()));
+                parametros.put("stock", String.valueOf(articulo.getStock()));
                 parametros.put("origen", articulo.getOrigen());
                 parametros.put("oferta", String.valueOf(articulo.getOferta()));
                 parametros.put("destacado", String.valueOf(articulo.getDestacado()));
@@ -161,7 +160,7 @@ public class NuevoArticulo extends Navegacion {
         rQueue.add(stringRequest);
     }
 
-    public boolean onCreateOptionsMenu(Menu menu){
+    public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
 
         if ("Admin".equals(tipoUsuario)) {

@@ -25,10 +25,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="#F2A516"
-                app:title="Ofertas Especiales"
-                app:titleTextColor="#FFFFFF"
                 app:navigationIcon="?attr/homeAsUpIndicator"
-                app:navigationIconTint="#FFFFFF"/>
+                app:navigationIconTint="#FFFFFF"
+                app:title="@string/title_ofertas"
+                app:titleTextColor="#FFFFFF" />
 
         </com.google.android.material.appbar.AppBarLayout>
 
@@ -72,10 +72,10 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="¡DESCUENTOS!"
+                        android:text="@string/descuentos"
                         android:textColor="#F2A516"
                         android:textSize="12sp"
-                        android:textStyle="bold"/>
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
@@ -85,10 +85,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:text="Aprovecha nuestras mejores ofertas"
+                android:alpha="0.6"
+                android:text="@string/subtitle_ofertas"
                 android:textColor="#0D0D0D"
-                android:textSize="14sp"
-                android:alpha="0.6"/>
+                android:textSize="14sp" />
 
         </LinearLayout>
 

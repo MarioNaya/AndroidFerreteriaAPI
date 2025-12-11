@@ -25,10 +25,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="#F2A516"
-                app:title="Gestión de Usuarios"
-                app:titleTextColor="#FFFFFF"
                 app:navigationIcon="?attr/homeAsUpIndicator"
-                app:navigationIconTint="#FFFFFF"/>
+                app:navigationIconTint="#FFFFFF"
+                app:title="@string/title_lista_usuarios"
+                app:titleTextColor="#FFFFFF" />
 
         </com.google.android.material.appbar.AppBarLayout>
 

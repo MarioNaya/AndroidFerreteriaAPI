@@ -10,7 +10,8 @@ public class Articulo {
     private int destacado;
     private int oferta;
 
-    public Articulo(){}
+    public Articulo() {
+    }
 
     public Articulo(Long id, String nombre, String categoria, String descripcion, double precio, int stock, String origen, int destacado, int oferta) {
         this.id = id;
@@ -24,7 +25,7 @@ public class Articulo {
         this.oferta = oferta;
     }
 
-    public static class ArticuloBuilder implements IBuilder{
+    public static class ArticuloBuilder implements IBuilder {
 
         private Long id;
         private String nombre, categoria, descripcion;
@@ -37,47 +38,47 @@ public class Articulo {
         public ArticuloBuilder() {
         }
 
-        public ArticuloBuilder setId(Long id){
+        public ArticuloBuilder setId(Long id) {
             this.id = id;
             return this;
         }
 
-        public ArticuloBuilder setNombre(String nombre){
+        public ArticuloBuilder setNombre(String nombre) {
             this.nombre = nombre;
             return this;
         }
 
-        public ArticuloBuilder setCategoria(String categoria){
+        public ArticuloBuilder setCategoria(String categoria) {
             this.categoria = categoria;
             return this;
         }
 
-        public ArticuloBuilder setDescripcion(String descripcion){
+        public ArticuloBuilder setDescripcion(String descripcion) {
             this.descripcion = descripcion;
             return this;
         }
 
-        public ArticuloBuilder setPrecio(double precio){
+        public ArticuloBuilder setPrecio(double precio) {
             this.precio = precio;
             return this;
         }
 
-        public ArticuloBuilder setStock(int stock){
+        public ArticuloBuilder setStock(int stock) {
             this.stock = stock;
             return this;
         }
 
-        public ArticuloBuilder setOrigen(String origen){
+        public ArticuloBuilder setOrigen(String origen) {
             this.origen = origen;
             return this;
         }
 
-        public ArticuloBuilder setDestacado(int destacado){
+        public ArticuloBuilder setDestacado(int destacado) {
             this.destacado = destacado;
             return this;
         }
 
-        public ArticuloBuilder setOferta(int oferta){
+        public ArticuloBuilder setOferta(int oferta) {
             this.oferta = oferta;
             return this;
         }
@@ -88,9 +89,13 @@ public class Articulo {
         }
     }
 
-    public Long getId() { return id; }
+    public Long getId() {
+        return id;
+    }
 
-    public void setId(Long id) { this.id = id; }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getNombre() {
         return nombre;
@@ -132,9 +137,13 @@ public class Articulo {
         this.stock = stock;
     }
 
-    public String getOrigen() { return origen; }
+    public String getOrigen() {
+        return origen;
+    }
 
-    public void setOrigen(String origen) { this.origen = origen; }
+    public void setOrigen(String origen) {
+        this.origen = origen;
+    }
 
     public int getDestacado() {
         return destacado;

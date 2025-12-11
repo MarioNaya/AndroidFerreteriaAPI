@@ -64,7 +64,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="16dp"
-                        android:text="Datos Personales"
+                        android:text="@string/datos_personales"
                         android:textColor="#0D0D0D"
                         android:textSize="18sp"
                         android:textStyle="bold" />
@@ -142,7 +142,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="16dp"
-                        android:text="Credenciales de Acceso"
+                        android:text="@string/credenciales"
                         android:textColor="#0D0D0D"
                         android:textSize="18sp"
                         android:textStyle="bold" />

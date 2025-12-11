@@ -115,7 +115,7 @@ public class NuevoUsuario extends Navegacion {
                             String status = jsonResponse.getString("status");
                             String mensaje = jsonResponse.getString("message");
 
-                            Avisos.avisoSinBotones(NuevoUsuario.this,getString(R.string.nuevo_usuario_title),mensaje).show();
+                            Avisos.avisoSinBotones(NuevoUsuario.this,getString(R.string.nuevo_usuario_title),mensaje);
 
 
                         } catch (JSONException e) {
@@ -127,7 +127,7 @@ public class NuevoUsuario extends Navegacion {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError volleyError) {
-                        Avisos.avisoSinBotones(NuevoUsuario.this,getString(R.string.error_database_title),volleyError.toString()).show();
+                        Avisos.avisoSinBotones(NuevoUsuario.this,getString(R.string.error_database_title),volleyError.toString());
                     }
                 })
         {

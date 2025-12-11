@@ -51,7 +51,7 @@
                 android:id="@+id/textView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Artículos Destacados"
+                android:text="@string/principal_title"
                 android:textColor="#0D0D0D"
                 android:textSize="22sp"
                 android:textStyle="bold" />
@@ -61,7 +61,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:alpha="0.6"
-                android:text="Encuentra las mejores herramientas"
+                android:text="@string/subtitle_destacados"
                 android:textColor="#0D0D0D"
                 android:textSize="14sp" />
 

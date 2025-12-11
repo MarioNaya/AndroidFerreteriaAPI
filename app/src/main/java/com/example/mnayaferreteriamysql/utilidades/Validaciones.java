@@ -24,7 +24,7 @@ public class Validaciones {
         if (view instanceof Spinner) {
             Spinner spinner = (Spinner) view;
             if (spinner.getSelectedItemPosition() == 0) {
-                Avisos.campoObligatorio(spinner, context).show();
+                Avisos.campoObligatorio(spinner, context);
                 return false;
             }
         }

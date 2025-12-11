@@ -222,7 +222,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="24dp"
                         android:layout_marginBottom="12dp"
-                        android:text="Opciones Especiales"
+                        android:text="@string/opciones_especiales"
                         android:textColor="#F2A516"
                         android:textSize="14sp"
                         android:textStyle="bold" />

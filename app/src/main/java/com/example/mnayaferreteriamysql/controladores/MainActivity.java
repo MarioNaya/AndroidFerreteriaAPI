@@ -49,7 +49,7 @@ public class MainActivity extends Navegacion {
             return insets;
         });
 
-        if (getSession().haySesionActiva()){
+        if (getSession().haySesionActiva()) {
             irAPantallaPrincipal();
             return;
         }
@@ -85,66 +85,66 @@ public class MainActivity extends Navegacion {
         finish();
     }
 
-    public void login(String URL){
+    public void login(String URL) {
 
         String usuario = user.getText().toString();
         String password = pass.getText().toString();
 
-        if(Validaciones.comruebaCamposVacios(layout, MainActivity.this)){
+        if (Validaciones.comruebaCamposVacios(layout, MainActivity.this)) {
             return;
         }
-            StringRequest StringR = new StringRequest(
-                    Request.Method.POST,
-                    URL, new Response.Listener<String>() {
-                @Override
-                public void onResponse(String response) {
-                    String mensaje = null;
+        StringRequest StringR = new StringRequest(
+                Request.Method.POST,
+                URL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                String mensaje = null;
 
-                    try {
-                        JSONObject jsonResponse = new JSONObject(response);
+                try {
+                    JSONObject jsonResponse = new JSONObject(response);
 
-                        String status = jsonResponse.getString("status");
-                        mensaje = jsonResponse.getString("mensaje");
+                    String status = jsonResponse.getString("status");
+                    mensaje = jsonResponse.getString("mensaje");
 
-                        if (Objects.equals(mensaje, "OK")) {
-                            tipo = jsonResponse.getString("tipo");
-                            usuar = user.getText().toString();
-                            getSession().guardarSesion(usuar,tipo);
-                            irAPantallaPrincipal();
-                        } else {
-                            Avisos.avisoSinBotones(MainActivity.this, "LOGIN", "Error en el logado. Inténtelo de nuevo").show();
+                    if (Objects.equals(mensaje, "OK")) {
+                        tipo = jsonResponse.getString("tipo");
+                        usuar = user.getText().toString();
+                        getSession().guardarSesion(usuar, tipo);
+                        irAPantallaPrincipal();
+                    } else {
+                        Avisos.avisoSinBotones(MainActivity.this, "LOGIN", "Error en el logado. Inténtelo de nuevo");
 
-                            user.setText("");
-                            pass.setText("");
-                            user.requestFocus();
-                        }
-                    } catch (JSONException e) {
-                        Toast.makeText(getApplicationContext(),
-                                "Error en la respuesta JSON",
-                                Toast.LENGTH_SHORT).show();
-                        throw new RuntimeException(e);
+                        user.setText("");
+                        pass.setText("");
+                        user.requestFocus();
                     }
+                } catch (JSONException e) {
+                    Toast.makeText(getApplicationContext(),
+                            "Error en la respuesta JSON",
+                            Toast.LENGTH_SHORT).show();
+                    throw new RuntimeException(e);
                 }
-            }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError volleyError) {
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
 
-                    Toast.makeText(getApplicationContext(), volleyError.toString(), Toast.LENGTH_SHORT).show();
-                }
-            }) {
-                @Override
-                protected Map<String, String> getParams() throws AuthFailureError {
-                    Map<String,String> parametros = new HashMap<String, String>();
-                    parametros.put("usuario",usuario);
-                    parametros.put("password",password);
+                Toast.makeText(getApplicationContext(), volleyError.toString(), Toast.LENGTH_SHORT).show();
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> parametros = new HashMap<String, String>();
+                parametros.put("usuario", usuario);
+                parametros.put("password", password);
 
-                    return parametros;
-                }
-            };
-            RequestQueue requestQueue = Volley.newRequestQueue(MainActivity.this);
-            requestQueue.getCache().clear();
-            requestQueue.add(StringR);
-        }
+                return parametros;
+            }
+        };
+        RequestQueue requestQueue = Volley.newRequestQueue(MainActivity.this);
+        requestQueue.getCache().clear();
+        requestQueue.add(StringR);
+    }
 
 
 }
