@@ -58,35 +58,6 @@
                     android:orientation="vertical"
                     android:padding="20dp">
 
-                    <!-- Header con ID -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical"
-                        android:layout_marginBottom="16dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:alpha="0.6"
-                            android:text="@string/id_detalle_articulo"
-                            android:textColor="#0D0D0D"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/textIdDetalleUsuario"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="#12345"
-                            android:textSize="14sp"
-                            android:textColor="#F2A516"
-                            android:textStyle="bold"
-                            android:layout_marginStart="4dp"/>
-
-                    </LinearLayout>
-
                     <!-- Título sección datos personales -->
                     <TextView
                         android:layout_width="wrap_content"
@@ -112,6 +83,7 @@
                             android:id="@+id/campoNombreDetalleUsuario"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:enabled="false"
                             android:inputType="textPersonName"
                             android:text="Juan"
                             android:textColor="#0D0D0D" />
@@ -133,6 +105,7 @@
                             android:id="@+id/campoApellidosDetalleUsuario"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:enabled="false"
                             android:inputType="textPersonName"
                             android:text="Pérez García"
                             android:textColor="#0D0D0D" />
@@ -154,6 +127,7 @@
                             android:id="@+id/campoEdadDetalleUsuario"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:enabled="false"
                             android:inputType="number"
                             android:text="35"
                             android:textColor="#0D0D0D" />
@@ -198,7 +172,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@"
+                            android:text="\@"
                             android:textColor="#F2A516"
                             android:textSize="18sp"
                             android:textStyle="bold"/>
@@ -232,6 +206,7 @@
                             android:id="@+id/campoPasswordDetalleUsuario"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:enabled="false"
                             android:inputType="textPassword"
                             android:text="password123"
                             android:textColor="#0D0D0D" />

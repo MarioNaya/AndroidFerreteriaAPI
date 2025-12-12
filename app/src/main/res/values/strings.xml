@@ -42,6 +42,7 @@
     <!--DETALLE DE USUARIO-->
     <string name="tipo_usuario">Tipo de Usuario</string>
 
+
     <!--NUEVO USUARIO-->
     <string name="nuevo_usuario_title">Nuevo Usuario</string>
     <string name="tipo">Tipo</string>
@@ -88,6 +89,10 @@
     <string name="campo_obligatorio_title">Campo obligatorio</string>
     <string name="eliminar_articulo_title">Eliminar artículo</string>
     <string name="eliminar_articulo_message">Va a eliminar el artículo ¿Quiere confirmar?</string>
+    <string name="error_carga_datos">Error en la carga de datos</string>
+    <string name="eliminar_usuario_title">Eliminar usuario</string>
+    <string name="eliminar_usuario_message">Va a eliminar el usuario ¿Quiere confirmar?</string>
+
 
     <!--ARRAYS SPINNERS-->
     <string-array name="spinner_categoria">

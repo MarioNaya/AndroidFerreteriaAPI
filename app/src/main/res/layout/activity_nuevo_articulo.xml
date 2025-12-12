@@ -152,7 +152,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="8dp"
                             android:layout_weight="1"
-                            android:hint="@string/campo_precio_hint"
+                            android:hint="@string/precio_hint"
                             app:boxStrokeColor="#F2A516"
                             app:hintTextColor="#F2A516"
                             app:prefixText="€"

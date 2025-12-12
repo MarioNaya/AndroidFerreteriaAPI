@@ -33,11 +33,11 @@ public class SessionManager {
     }
 
     public String getNombre(){
-        return prefs.getString("nombre","");
+        return prefs.getString(KEY_NOMBRE,"");
     }
 
     public String getTipo(){
-        return prefs.getString("tipo","");
+        return prefs.getString(KEY_TIPO,"");
     }
 
     public boolean haySesionActiva(){

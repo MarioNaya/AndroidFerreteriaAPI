@@ -56,7 +56,7 @@ public class ListaArticulosAdapter extends BaseAdapter {
 
         nombre.setText(articulo.getNombre());
         categoria.setText(articulo.getCategoria());
-        precio.setText(String.valueOf(articulo.getPrecio()));
+        precio.setText(String.valueOf(articulo.getPrecio()) + "€");
 
         if (articulo.getCategoria().equals("Herramientas")){
             imagen.setImageResource(R.drawable.pictogramaherramientas);
