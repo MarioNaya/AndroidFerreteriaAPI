@@ -7,6 +7,7 @@ import androidx.appcompat.app.AlertDialog;
 
 import com.example.mnayaferreteriamysql.R;
 
+
 public class Avisos {
 
     public static void campoObligatorio(View campo, Context context){
